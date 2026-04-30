@@ -494,7 +494,7 @@ button {
     transform: scale(1) translateY(0px);
   }
   50% {
-    transform: scale(1.08) translateY(-65px);
+    transform: scale(1.08) translateY(-25px);
   }
   100% {
     transform: scale(1) translateY(0px);
