@@ -25,10 +25,10 @@
   --color-orange-dark: #d95e0e;
   --color-orange-60: rgba(247, 116, 26, 0.6);
 
-  --font-display: 'Instrument Sans', sans-serif;
-  --font-body: 'Inter', 'Inter Placeholder', sans-serif;
-  --font-alt: 'Rethink Sans', 'Rethink Sans Placeholder', sans-serif;
-  --font-mono: 'Geist', monospace;
+  --font-display: "Instrument Sans", sans-serif;
+  --font-body: "Inter", "Inter Placeholder", sans-serif;
+  --font-alt: "Rethink Sans", "Rethink Sans Placeholder", sans-serif;
+  --font-mono: "Geist", monospace;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -465,7 +465,27 @@ button {
   object-fit: contain;
   object-position: center;
 
-  animation: floatZoom 8s ease-in-out infinite;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.about-image img.show {
+  animation:
+    fadeUp 1s ease-out forwards,
+    floatZoom 8s ease-in-out infinite;
+
+  animation-delay: 0s, 1s;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes floatZoom {
