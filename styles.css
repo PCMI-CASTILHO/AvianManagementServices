@@ -467,7 +467,7 @@ button {
   border-radius: var(--radius-xl);
 
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(80px);
 }
 
 .about-image img.show {
