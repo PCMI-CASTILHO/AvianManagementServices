@@ -183,14 +183,37 @@
             </p>
           </div>
           <div class="about-image">
-            <img
-              src="./assets/img/bird_selector.png"
-              sizes="497px"
-              width="2300"
-              height="2810"
-              alt="Scientist in laboratory"
-              decoding="async"
-            />
+            <div class="carousel" id="aboutCarousel">
+              <div class="carousel-slide active">
+                <img
+                  src="./assets/img/bird_selector.png"
+                  sizes="497px"
+                  width="2300"
+                  height="2810"
+                  alt="Bird selector equipment"
+                  decoding="async"
+                  class="show"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="./assets/img/poultry_sorting.png"
+                  sizes="497px"
+                  width="2300"
+                  height="2810"
+                  alt="Poultry sorting system"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="carousel-dots">
+              <button
+                class="dot active"
+                aria-label="Slide 1"
+                data-index="0"
+              ></button>
+              <button class="dot" aria-label="Slide 2" data-index="1"></button>
+            </div>
           </div>
         </div>
       </div>
@@ -991,27 +1014,37 @@
         }, 500);
       }
 
-      //bird_selector.png config
+      //bird_selector.png and poultry_sorting.png config
       document.addEventListener("DOMContentLoaded", function () {
-        const img = document.querySelector(".about-image img");
+        const carousel = document.getElementById("aboutCarousel");
+        if (!carousel) return;
 
-        if (!img) return; // evita erro silencioso
+        const slides = carousel.querySelectorAll(".carousel-slide");
+        const dots = document.querySelectorAll(".carousel-dots .dot");
+        let current = 0;
+        let timer;
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                img.classList.add("show");
-                observer.unobserve(img);
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-          },
-        );
+        function goTo(index) {
+          slides[current].classList.remove("active");
+          dots[current].classList.remove("active");
+          current = index % slides.length;
+          slides[current].classList.add("active");
+          dots[current].classList.add("active");
+        }
 
-        observer.observe(img);
+        function startTimer() {
+          timer = setInterval(() => goTo((current + 1) % slides.length), 5000);
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            clearInterval(timer);
+            goTo(Number(dot.dataset.index));
+            startTimer();
+          });
+        });
+
+        startTimer();
       });
     </script>
   </body>
