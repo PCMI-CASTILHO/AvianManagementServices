@@ -254,6 +254,20 @@ button {
   background-color: #333333;
 }
 
+.btn-whatsapp {
+  background-color: #25d366;
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+}
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
 /* ─────────────────────────────────────────
    6. NAV / HEADER
    ───────────────────────────────────────── */
@@ -289,7 +303,7 @@ button {
 }
 
 .nav-logo img {
-  height: 3rem;
+  height: 4.2rem;
   width: auto;
   object-fit: contain;
 }
@@ -439,6 +453,19 @@ button {
   .hero-bg img {
     object-position: 50% 16.1%;
   }
+
+  /* Logos menores no mobile */
+  .logo-grid img {
+    height: 2.25rem;
+  }
+
+  .logo-strip-inner {
+    gap: var(--space-md);
+  }
+
+  .logo-grid {
+    gap: var(--space-md);
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -502,11 +529,98 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   9. FEATURES GRID
+   9. KEY FEATURES SIMPLE (icon + text)
+   ───────────────────────────────────────── */
+.key-features-section {
+  padding-block: var(--space-2xl);
+  background-color: var(--color-surface);
+}
+
+.key-features-header {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.key-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.key-feature-card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+.key-feature-card:hover {
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.09);
+  transform: translateY(-3px);
+}
+
+.key-feature-img-wrap {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.key-feature-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.5rem;
+}
+
+.key-feature-text h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.key-feature-text p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-muted-deep);
+}
+
+@media (max-width: 480px) {
+  .key-feature-img-wrap {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   10. FEATURES GRID
    ───────────────────────────────────────── */
 .features-grid-section {
   background-color: var(--color-surface);
   padding-block: var(--space-2xl);
+}
+
+.features-grid-header {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
 }
 
 .features-grid {
@@ -517,7 +631,7 @@ button {
 
 .feature-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-sm);
   background-color: var(--color-bg);
   border-radius: var(--radius-lg);
@@ -534,8 +648,8 @@ button {
 
 .feature-icon {
   flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 7rem;
+  height: 7rem;
   object-fit: contain;
 }
 
@@ -548,7 +662,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   10. PRODUCT SHOWCASE (BIRD SELECTOR)
+   11. PRODUCT SHOWCASE (BIRD SELECTOR)
    ───────────────────────────────────────── */
 .product-showcase {
   padding-block: var(--space-2xl);
@@ -579,8 +693,20 @@ button {
   border-radius: var(--radius-lg);
 }
 
+.showcase-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-block: var(--space-2xl);
+}
+
+.product-video--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 320px;
+  margin-inline: auto;
+}
+
 /* ─────────────────────────────────────────
-   11. BANNER SECTION (full-width image + overlay)
+   12. BANNER SECTION (full-width image + overlay)
    ───────────────────────────────────────── */
 .banner-section {
   position: relative;
@@ -605,7 +731,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   12. AMS CARDS (About pillars)
+   13. AMS CARDS (About pillars)
    ───────────────────────────────────────── */
 .ams-intro-section {
   padding-block: var(--space-2xl);
@@ -664,7 +790,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   13. FEATURES LARGE (Alternating sections)
+   14. FEATURES LARGE (Alternating sections)
    ───────────────────────────────────────── */
 .feature-large-section {
   padding-top: 8rem;
@@ -784,86 +910,6 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   14. KEY FEATURES SIMPLE (icon + text)
-   ───────────────────────────────────────── */
-.key-features-section {
-  padding-block: var(--space-2xl);
-  background-color: var(--color-surface);
-}
-
-.key-features-header {
-  text-align: center;
-  max-width: 44rem;
-  margin-inline: auto;
-  margin-bottom: var(--space-xl);
-}
-
-.key-features-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  max-width: 720px;
-  margin-inline: auto;
-}
-
-.key-feature-card {
-  background: var(--color-bg);
-  border-radius: var(--radius-lg);
-  padding: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition:
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
-}
-.key-feature-card:hover {
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.09);
-  transform: translateY(-3px);
-}
-
-.key-feature-img-wrap {
-  flex-shrink: 0;
-  width: 160px;
-  height: 160px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.key-feature-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 0.5rem;
-}
-
-.key-feature-text h3 {
-  font-size: 1.0625rem;
-  font-weight: 600;
-  color: var(--color-dark);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.25rem;
-}
-
-.key-feature-text p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--color-muted-deep);
-}
-
-@media (max-width: 480px) {
-  .key-feature-img-wrap {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* ─────────────────────────────────────────
    15. GLOBAL EXPERTISE
    ───────────────────────────────────────── */
 .global-expertise-section {
@@ -977,7 +1023,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   GLOBAL PILLARS — BLUE ICON STRIP
+   16. GLOBAL PILLARS — BLUE ICON STRIP
    ───────────────────────────────────────── */
 .global-pillars-section {
   padding: var(--space-md) 0;
@@ -1031,7 +1077,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   16. CONTACT / FORM SECTION
+   17. CONTACT / FORM SECTION
    ───────────────────────────────────────── */
 .contact-section {
   padding-block: var(--space-2xl);
@@ -1131,7 +1177,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   17. PRODUCTS SECTION
+   18. PRODUCTS SECTION
    ───────────────────────────────────────── */
 .products-section {
   padding-block: var(--space-2xl);
@@ -1215,7 +1261,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   18. FOOTER
+   19. FOOTER
    ───────────────────────────────────────── */
 .site-footer {
   background-color: var(--color-white);
@@ -1265,7 +1311,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   19. RESPONSIVE — Tablet (≤1024px)
+   20. RESPONSIVE — Tablet (≤1024px)
    ───────────────────────────────────────── */
 @media (max-width: 1024px) {
   .features-grid {
@@ -1299,7 +1345,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   20. RESPONSIVE — Mobile (≤768px)
+   21. RESPONSIVE — Mobile (≤768px)
    ───────────────────────────────────────── */
 @media (max-width: 768px) {
   :root {
@@ -1384,7 +1430,7 @@ button {
 }
 
 /* ─────────────────────────────────────────
-   21. ACCESSIBILITY & UTILITIES
+   22. ACCESSIBILITY & UTILITIES
    ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
